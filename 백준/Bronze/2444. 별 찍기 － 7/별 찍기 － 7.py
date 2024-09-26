@@ -1,12 +1,15 @@
-# 사용자로부터 N을 입력받습니다.
 N = int(input())
 
-# 위쪽 삼각형 부분을 출력합니다.
-for i in range(1, N + 1):
-    # 공백은 N - i 개, 별은 2*i - 1 개 필요합니다.
-    print(' ' * (N - i) + '*' * (2 * i - 1))
+blank = N
 
-# 아래쪽 반전된 삼각형 부분을 출력합니다.
-for i in range(N - 1, 0, -1):
-    # 공백은 N - i 개, 별은 2*i - 1 개 필요합니다.
-    print(' ' * (N - i) + '*' * (2 * i - 1))
+for i in range(1,2*N,2) :
+    blank -= 1
+    print(' ' * blank,end='')
+    star = i
+    print('*' * star)
+
+for i in range(2*N-3,0,-2):
+    print(' ' * blank,end=' ')
+    blank += 1
+    star = i
+    print('*' * star)
