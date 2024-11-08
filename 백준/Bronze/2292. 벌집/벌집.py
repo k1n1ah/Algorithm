@@ -1,11 +1,10 @@
 N = int(input())
 
-room = [1]
-i = 0
+room = 1 
+i = 1  
 
-while room[i] < N:
+while room < N:
+    room += 6 * i  
     i += 1
-    next_room = room[i-1] + 6 * i 
-    room.append(next_room)
 
-print(i + 1)
+print(i)
