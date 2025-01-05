@@ -36,3 +36,58 @@
 
  <p>각 입력에 맞는 결과 (Equilateral, Isosceles, Scalene, Invalid) 를 출력하시오.</p>
 
+###  문제분석 & 이유
+---
+이번에는 세변의 길이로 삼각형 유효성 여부를 따지는 문제다.
+
+
+###  Pseudo Code
+
+---
+
+```
+무한 루프를 돌린다:
+    세개의 변 길이를 동시에 받는다
+    중단 여부를 검사한다
+    
+    3개의 변을 리스트에 넣고
+    sort로 정리한다
+    
+    만약 가장 긴변의 길이가 나머지 변의 길이와 같거나 크다면
+        Invalid를 출력한다
+    아니면
+        다 같으면
+            Equilateral 출력
+        두개만 같다면
+            Isosceles 출력
+        다 다르다면
+            Scalene 출력
+```
+
+
+### 문제 해결 및 배운 점
+---
+삼각형의 가장 긴 변은 나머지 두개의 변보다 작아야한다. 
+라는 조건을 까먹고 있었다.
+
+### 최종 코드
+---
+
+```
+while True:
+    a1, a2, a3 = map(int, input().split())
+    if a1 == 0 and a2 == 0 and a3 == 0:
+        break
+    sides = [a1, a2, a3]
+    sides.sort()  
+    if sides[2] >= sides[0] + sides[1]:  
+        print("Invalid")
+    else:
+        if a1 == a2 == a3:
+            print("Equilateral")
+        elif a1 == a2 or a1 == a3 or a2 == a3:
+            print("Isosceles")
+        else:
+            print("Scalene")
+
+```
