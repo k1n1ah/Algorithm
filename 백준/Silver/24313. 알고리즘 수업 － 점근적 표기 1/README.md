@@ -38,3 +38,57 @@
 
  <p><em>f</em>(<em>n</em>), <em>c</em>, <em>n<sub>0</sub></em>가 O(<em>n</em>) 정의를 만족하면 1, 아니면 0을 출력한다.</p>
 
+###  문제분석 & 이유
+---
+빅오 표기법에 대해 물어보는 문제이다. 
+
+O(g(n)) = {f(n) | 모든 n ≥ n0에 대하여 f(n) ≤ c × g(n)인 양의 상수 c와 n0가 존재한다}
+
+라는 전제인데, n0보다 큰 모든 n에 대해서 f(n) <= c * g(n) 을 만족해야한다. 
+하지만 모든 n0보다 큰 모든 n을 확인할수없으므로 어느정도의 범위를 잡고 시험한다.
+
+
+###  Pseudo Code
+
+---
+
+```
+a1과 a0를 받는다
+c를 받는다
+n0를 받는다
+
+condition을 flag로 둔다.
+
+범위를 n0~n0+1000으로 두고 테스트를 한다.
+만약 조건에 부합하지 않는다면 flag를 False로 바꾼다.
+
+모든 검사가 끝나고도 condition이 True라면 1을 출력하고
+아니라면 0을 출력한다.
+```
+
+
+### 문제 해결 및 배운 점
+---
+빅오표기법의 범위를 임의로 설정하는 크기를 고민했다.
+1000 정도면 충분한 것같다.
+
+### 최종 코드
+---
+
+```
+a1, a0 = map(int, input().split())
+c = int(input())
+n0 = int(input())
+
+condition = True
+
+for n in range(n0, 1001):
+    if a1*n + a0 > c * n :
+        condition = False
+        break
+
+if condition :
+    print(1)
+else :
+    print(0)
+```
