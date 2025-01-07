@@ -36,3 +36,54 @@
 
  <p>첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.</p>
 
+###  문제분석 & 이유
+---
+
+단순 3중 for문 문제이다. 
+
+3개의 카드를 모든 경우의 수를 비교하면 된다. 
+
+
+###  Pseudo Code
+
+---
+
+```
+N과 M을 받는다
+Card를 list로 받는다
+total을 전역변수로 선언한다
+
+1중 i를 변수로 i부터 n까지
+2중 j를 변수로 i+1부터 n까지
+3중 k를 변수로 j+1부터 n까지
+    3개 카드의 총합을 구한다. 
+    만약 M보다 작거나 같고 total보다 크다면 
+    total을 해당 수로 바꾼다. 
+    
+출력한다. 
+```
+
+
+### 문제 해결 및 배운 점
+---
+for문 마다 sum에 넣는 것이 아니라
+마지막 for문에 넣으면 훨씬 간편하다.
+
+### 최종 코드
+---
+
+```
+N, M = map(int, input().split())
+Card = list(map(int, input().split()))
+total = 0
+
+for i in range(N):
+    for j in range(i + 1, N):
+        for k in range(j + 1, N):
+            SumOfCards = Card[i] + Card[j] + Card[k]
+            if SumOfCards <= M and SumOfCards > total:
+                total = SumOfCards
+
+print(total)
+
+```
