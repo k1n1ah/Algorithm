@@ -33,3 +33,39 @@
 
  <p>문제의 답인 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$x$</span></mjx-container>와 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$y$</span></mjx-container>를 공백으로 구분해 출력한다.</p>
 
+###  문제분석 & 이유
+---
+
+방정식 두개로 x와 y의 값을 알아내는 문제이다. 
+y를 소거한 x의 식으로 값을 알아내고, 반대의 경우도 동일하게 하여 
+미지수들에 대한 식을 구하면 되는 간단한 문제이다. 
+
+###  Pseudo Code
+
+---
+
+```
+미지수들을 입력받는다
+
+x에 대한 계산식으로 값을 구한다
+y에 대한 계산식으로 값을 구한다
+
+출력한다. 
+```
+
+
+### 문제 해결 및 배운 점
+---
+
+
+### 최종 코드
+---
+
+```
+a,b,c,d,e,f = map(int, input().split())
+
+x = (b*f - c*e) // (b*d - a* e)
+y = (a * f - c* d) // (a*e - b*d)
+print(x,y)
+
+```

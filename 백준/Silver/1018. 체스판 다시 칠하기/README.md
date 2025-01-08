@@ -30,3 +30,58 @@
 
  <p>첫째 줄에 지민이가 다시 칠해야 하는 정사각형 개수의 최솟값을 출력한다.</p>
 
+###  문제분석 & 이유
+---
+
+지민이는 8*8의 체스판을 가지고 싶다. 
+
+무작위로 색칠된 나무판 중에서 
+최소한만 다시 색칠하여 사용할수있는 부분을 알고 싶어한다. 
+
+
+
+###  Pseudo Code
+
+---
+
+```
+
+```
+
+
+### 문제 해결 및 배운 점
+---
+문제 이해가 다소 어려웠다. 
+슬라이딩 윈도우 개념을 네트워크에서만 보다가 직접 적용하니 아주 편리했다. 
+if else 부분을 간편하게 한줄로 정리하는 법을 체화하고 싶다. 
+
+최소값을 설정함에 있어 inf를 쓰니 더 정확하게 정리할수있었다
+
+이 코드를 계속 염두에 두고 가져가면 최적의 코드를 짤 수 있을 것 같다.
+
+### 최종 코드
+---
+
+```
+N, M = map(int, input().split())
+board = [input() for _ in range(N)]
+
+pattern1 = [[('W' if (i + j) % 2 == 0 else 'B') for j in range(8)] for i in range(8)]
+pattern2 = [[('B' if (i + j) % 2 == 0 else 'W') for j in range(8)] for i in range(8)]
+
+min_changes = float('inf')
+
+for i in range(N - 7):
+    for j in range(M - 7):
+        changes1 = changes2 = 0
+        for x in range(8):
+            for y in range(8):
+                if board[i + x][j + y] != pattern1[x][y]:
+                    changes1 += 1
+                if board[i + x][j + y] != pattern2[x][y]:
+                    changes2 += 1
+        min_changes = min(min_changes, changes1, changes2)
+
+print(min_changes)
+
+```
